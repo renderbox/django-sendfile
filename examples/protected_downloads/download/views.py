@@ -29,6 +29,11 @@ def download_list(request):
         downloads = downloads.filter(Q(is_public=True) | Q(users=request.user))
     else:
         downloads = downloads.filter(is_public=True)
-    return render_to_response('download/download_list.html',
-                              {'download_list': downloads},
-                              context_instance=RequestContext(request))
+
+    ctx = {}
+    # ctx = RequestContext(request)
+    print(ctx)
+    ctx['download_list'] = downloads
+    return render_to_response('download/download_list.html', ctx)
+                              # {'download_list': downloads},
+                              # context_instance=RequestContext(request))

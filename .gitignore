@@ -9,3 +9,5 @@
 /lib
 /build
 .Python
+venv
+*.sqlite3
